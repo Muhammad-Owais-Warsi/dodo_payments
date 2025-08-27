@@ -185,56 +185,55 @@ app.post("/webhook", async (c) => {
 
     const samePayloadOutput = await webhook.verify(raw, webhookHeaders);
 
-    // if (samePayloadOutput == body) {
-    console.log(body);
-    switch (body.type) {
-      case "subscription.active":
-        await db.updateUserPlan(
-          body.data.customer.customer_id,
-          body.data.subscription_id,
-          getSlugByProductId(body.data.product_id),
-          body.data.expires_at,
-          body.data.status,
-        );
-        break;
-      case "subscription.expired":
-        await db.updateUserPlan(
-          body.data.customer.customer_id,
-          body.data.subscription_id,
-          getSlugByProductId(body.data.product_id),
-          body.data.expires_at,
-          body.data.status,
-        );
-        break;
-      case "subscription.renewed":
-        await db.updateUserPlan(
-          body.data.customer.customer_id,
-          body.data.subscription_id,
-          getSlugByProductId(body.data.product_id),
-          body.data.expires_at,
-          body.data.status,
-        );
-        break;
-      case "subscription.plan_changed":
-        await db.updateUserPlan(
-          body.data.customer.customer_id,
-          body.data.subscription_id,
-          getSlugByProductId(body.data.product_id),
-          body.data.expires_at,
-          body.data.status,
-        );
-        break;
-      case "subscription.cancelled":
-        await db.updateUserPlan(
-          body.data.customer.customer_id,
-          body.data.subscription_id,
-          getSlugByProductId(body.data.product_id),
-          body.data.expires_at,
-          body.data.status,
-        );
-        break;
+    if (samePayloadOutput == body) {
+      switch (body.type) {
+        case "subscription.active":
+          await db.updateUserPlan(
+            body.data.customer.customer_id,
+            body.data.subscription_id,
+            getSlugByProductId(body.data.product_id),
+            body.data.expires_at,
+            body.data.status,
+          );
+          break;
+        case "subscription.expired":
+          await db.updateUserPlan(
+            body.data.customer.customer_id,
+            body.data.subscription_id,
+            getSlugByProductId(body.data.product_id),
+            body.data.expires_at,
+            body.data.status,
+          );
+          break;
+        case "subscription.renewed":
+          await db.updateUserPlan(
+            body.data.customer.customer_id,
+            body.data.subscription_id,
+            getSlugByProductId(body.data.product_id),
+            body.data.expires_at,
+            body.data.status,
+          );
+          break;
+        case "subscription.plan_changed":
+          await db.updateUserPlan(
+            body.data.customer.customer_id,
+            body.data.subscription_id,
+            getSlugByProductId(body.data.product_id),
+            body.data.expires_at,
+            body.data.status,
+          );
+          break;
+        case "subscription.cancelled":
+          await db.updateUserPlan(
+            body.data.customer.customer_id,
+            body.data.subscription_id,
+            getSlugByProductId(body.data.product_id),
+            body.data.expires_at,
+            body.data.status,
+          );
+          break;
+      }
     }
-    // }
 
     return c.json({ received: true }, 200);
   } catch (error) {

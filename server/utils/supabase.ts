@@ -1,5 +1,4 @@
 import { createClient } from "@supabase/supabase-js";
-import { ProductSlug } from "./dodopayments";
 
 type Response = {
   type: "error" | "success";

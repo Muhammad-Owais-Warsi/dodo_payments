@@ -4,7 +4,7 @@ import { serve } from "@hono/node-server";
 import { auth } from "../utils/auth";
 import { db } from "../utils/supabase";
 import { dodo } from "../utils/dodopayments";
-import type { ProductSlug } from "../utils/dodopayments";
+
 import {
   Webhook,
   type WebhookUnbrandedRequiredHeaders,
@@ -256,7 +256,3 @@ serve(
     console.log(`Server is running on http://localhost:${info.port}`);
   },
 );
-
-// TODO
-
-// make the routes authenticated

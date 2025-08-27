@@ -3,6 +3,26 @@
 Easily integrate **subscription-based pricing** in your app using this boilerplate.  **Powered by [Dodo Payments](https://dodopayments.com)**  
 
 
+## Project Structure
+```
+.
+├── server/
+│   ├── src/
+│   │   ├── index.ts (main file)
+│   │
+│    ├── helper/ (helper functions)
+│    │
+│   ├── utils/
+│   │   ├── auth.ts (better auth service)
+│   │   └── supabase.ts (supabase service/ db)
+│   │   └── dodopayments.ts (dodopayemnts service)
+│   
+├── client/ (frontend)
+└── setup.sh
+
+```
+
+
 ## Local Setup
 
 Follow these steps to run the app locally:  

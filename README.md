@@ -10,8 +10,8 @@ Easily integrate **subscription-based pricing** in your app using this boilerpla
 │   ├── src/
 │   │   ├── index.ts (main file)
 │   │
-│    ├── helper/ (helper functions)
-│    │
+│   ├── helper/ (helper functions)
+│   │
 │   ├── utils/
 │   │   ├── auth.ts (better auth service)
 │   │   └── supabase.ts (supabase service/ db)
